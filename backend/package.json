@@ -1,0 +1,36 @@
+{
+  "name": "collabnest-backend",
+  "version": "1.0.0",
+  "description": "CollabNest backend — Talent-side MVP (Must + Should scope). Node.js, Express, TypeORM, PostgreSQL.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "migration:run": "node_modules/.bin/typeorm migration:run -d src/config/database.js",
+    "migration:revert": "node_modules/.bin/typeorm migration:revert -d src/config/database.js",
+    "migration:generate": "node_modules/.bin/typeorm migration:generate -d src/config/database.js",
+    "seed": "node src/seeders/index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.41.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.11.5",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

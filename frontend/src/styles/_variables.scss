@@ -1,0 +1,107 @@
+// ===================================================
+// CollabNest Design Tokens
+// Source of truth: CollabNest Brand Strategy + Logo Direction docs
+// Primary (70%): Bright Blue #2563EB — tech, connection, intelligence
+// Secondary (20%): Deep Navy #0D1B2A — trust, professionalism, headlines/nav
+// Accent 1 (10%): Purple #7C3AED — innovation, featured content
+// Accent 2 (10%): Green #22C55E — success, active, verified
+// Neutrals: Off White #F8FAFC, Light Gray #E5E7EB
+// Typeface: Manrope (400/500/600/700/800)
+// ===================================================
+
+// ---- Brand colors ----
+$color-primary: #2563eb; // Bright Blue
+$color-primary-dark: #1d4ed8;
+$color-primary-darker: #1e3a8a;
+$color-primary-light: #5c85f5;
+$color-primary-tint: #eaf0fe; // light blue surface/badge tint
+$color-primary-tint-2: #d6e2fc;
+
+$color-navy-950: #070d16;
+$color-navy-900: #0d1b2a; // Deep Navy — headlines, nav, dark surfaces
+$color-navy-800: #152738;
+$color-navy-700: #203449;
+
+$color-accent-purple: #7c3aed; // innovation, featured projects, special badges
+$color-accent-purple-tint: #f2ebfd;
+$color-accent-green: #22c55e; // success, active, verified skills
+$color-accent-green-tint: #e7f9ee;
+
+// ---- Neutral / surface scale ----
+$color-surface-app: #f8fafc; // Off White
+$color-surface-white: #ffffff;
+$color-border: #e5e7eb; // Light Gray
+$color-border-strong: #cbd1db;
+
+$color-ink-900: #0d1b2a; // Deep Navy doubles as primary text
+$color-ink-700: #33415a;
+$color-ink-500: #647089;
+$color-ink-400: #93a0b5;
+$color-ink-inverse: #ffffff;
+$color-ink-inverse-muted: rgba(255, 255, 255, 0.7);
+
+// ---- Semantic (aligned to accent green / danger / warning) ----
+$color-success: $color-accent-green;
+$color-success-tint: $color-accent-green-tint;
+$color-danger: #dc3b2e;
+$color-danger-tint: #fceae8;
+$color-warning: #b5750f;
+$color-warning-tint: #fbf1e0;
+$color-info: $color-primary;
+$color-info-tint: $color-primary-tint;
+$color-featured: $color-accent-purple;
+$color-featured-tint: $color-accent-purple-tint;
+
+// ---- Typography ----
+$font-display: 'Manrope', 'Segoe UI', sans-serif;
+$font-body: 'Manrope', 'Segoe UI', sans-serif;
+
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 800;
+
+$fs-xs: 0.75rem;
+$fs-sm: 0.8125rem;
+$fs-base: 0.9375rem;
+$fs-md: 1.0625rem;
+$fs-lg: 1.25rem;
+$fs-xl: 1.625rem;
+$fs-2xl: 2.125rem;
+$fs-3xl: 2.75rem;
+
+// ---- Spacing scale ----
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-8: 32px;
+$space-10: 40px;
+$space-12: 48px;
+$space-16: 64px;
+$space-20: 80px;
+
+// ---- Radii ----
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-pill: 999px;
+
+// ---- Shadows ----
+$shadow-sm: 0 1px 2px rgba(13, 27, 42, 0.06);
+$shadow-md: 0 6px 20px rgba(13, 27, 42, 0.08);
+$shadow-lg: 0 16px 40px rgba(13, 27, 42, 0.14);
+$shadow-button: 0 6px 16px rgba(37, 99, 235, 0.28);
+
+// ---- Motion ----
+$ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+$duration-fast: 120ms;
+$duration-base: 200ms;
+
+// ---- Breakpoints ----
+$bp-tablet: 768px;
+$bp-desktop: 1080px;
+$bp-wide: 1320px;

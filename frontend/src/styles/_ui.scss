@@ -1,0 +1,618 @@
+@use 'variables' as *;
+
+// ============== Buttons ==============
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: $fs-sm;
+  border-radius: $radius-md;
+  padding: 11px 20px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all $duration-fast $ease-standard;
+  white-space: nowrap;
+  line-height: 1.2;
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background: $color-primary;
+  color: $color-ink-inverse;
+  box-shadow: $shadow-button;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-dark;
+  }
+}
+
+.btn-secondary {
+  background: $color-surface-white;
+  color: $color-ink-900;
+  border-color: $color-border-strong;
+
+  &:hover:not(:disabled) {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+}
+
+.btn-ghost {
+  background: transparent;
+  color: $color-ink-700;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-tint;
+    color: $color-primary;
+  }
+}
+
+.btn-danger {
+  background: $color-danger-tint;
+  color: $color-danger;
+
+  &:hover:not(:disabled) {
+    background: $color-danger;
+    color: $color-ink-inverse;
+  }
+}
+
+.btn-danger-solid {
+  background: $color-danger;
+  color: $color-ink-inverse;
+
+  &:hover:not(:disabled) {
+    background: darken($color-danger, 8%);
+  }
+}
+
+.btn-sm {
+  padding: 7px 14px;
+  font-size: $fs-xs;
+}
+
+.btn-lg {
+  padding: 14px 26px;
+  font-size: $fs-md;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-icon {
+  padding: 9px;
+  border-radius: $radius-pill;
+}
+
+// ============== Cards ==============
+.card {
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-6;
+}
+
+.card-tight {
+  padding: $space-4;
+}
+
+// ============== Forms ==============
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin-bottom: $space-4;
+}
+
+.field-label {
+  font-size: $fs-sm;
+  font-weight: 600;
+  color: $color-ink-700;
+
+  .optional {
+    font-weight: 400;
+    color: $color-ink-400;
+  }
+}
+
+.field-hint {
+  font-size: $fs-xs;
+  color: $color-ink-400;
+}
+
+.field-error {
+  font-size: $fs-xs;
+  color: $color-danger;
+  font-weight: 500;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  font-family: $font-body;
+  font-size: $fs-sm;
+  color: $color-ink-900;
+  background: $color-surface-white;
+  border: 1px solid $color-border-strong;
+  border-radius: $radius-md;
+  padding: 11px 14px;
+  transition: border-color $duration-fast $ease-standard;
+
+  &::placeholder {
+    color: $color-ink-400;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba(30, 73, 214, 0.12);
+  }
+
+  &.has-error {
+    border-color: $color-danger;
+  }
+
+  &:disabled {
+    background: $color-surface-app;
+    color: $color-ink-400;
+    cursor: not-allowed;
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23656d8c' stroke-width='1.6' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-2;
+  font-size: $fs-sm;
+  color: $color-ink-700;
+
+  input[type='checkbox'] {
+    margin-top: 3px;
+    accent-color: $color-primary;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+}
+
+// ============== Badges / Pills ==============
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: $radius-pill;
+  font-size: $fs-xs;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-neutral {
+  background: $color-surface-app;
+  color: $color-ink-500;
+  border: 1px solid $color-border;
+}
+.badge-primary {
+  background: $color-primary-tint;
+  color: $color-primary;
+}
+.badge-success {
+  background: $color-success-tint;
+  color: $color-success;
+}
+.badge-danger {
+  background: $color-danger-tint;
+  color: $color-danger;
+}
+.badge-warning {
+  background: $color-warning-tint;
+  color: $color-warning;
+}
+.badge-featured {
+  background: $color-featured-tint;
+  color: $color-featured;
+}
+.badge-verified {
+  background: $color-success-tint;
+  color: $color-success;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: $radius-pill;
+  background: $color-surface-app;
+  border: 1px solid $color-border;
+  color: $color-ink-700;
+  font-size: $fs-xs;
+  font-weight: 600;
+}
+
+// ============== Avatar ==============
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  background: $color-primary-tint;
+  color: $color-primary;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: $font-display;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+// ============== Modal ==============
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 36, 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-4;
+  z-index: 1000;
+  animation: fadeIn $duration-base $ease-standard;
+}
+
+.modal {
+  background: $color-surface-white;
+  border-radius: $radius-lg;
+  padding: $space-8;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: $shadow-lg;
+  animation: slideUp $duration-base $ease-standard;
+}
+
+.modal-wide {
+  max-width: 680px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: $space-5;
+  gap: $space-4;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: $color-ink-400;
+  padding: 4px;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+
+  &:hover {
+    color: $color-ink-900;
+    background: $color-surface-app;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============== Empty / Loading states ==============
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: $space-16 $space-6;
+  color: $color-ink-500;
+
+  .empty-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: $color-primary-tint;
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $space-4;
+  }
+
+  h3 {
+    font-size: $fs-md;
+    margin-bottom: $space-2;
+    color: $color-ink-900;
+  }
+
+  p {
+    max-width: 380px;
+    font-size: $fs-sm;
+    margin-bottom: $space-5;
+  }
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2.5px solid $color-primary-tint;
+  border-top-color: $color-primary;
+  animation: spin 0.7s linear infinite;
+}
+
+.spinner-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, $color-border 25%, $color-surface-app 37%, $color-border 63%);
+  background-size: 400% 100%;
+  animation: skeleton-wave 1.4s ease infinite;
+  border-radius: $radius-md;
+}
+
+@keyframes skeleton-wave {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+// ============== Tabs ==============
+.tabs {
+  display: flex;
+  gap: $space-2;
+  border-bottom: 1px solid $color-border;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  padding: $space-3 $space-1;
+  margin-right: $space-5;
+  font-size: $fs-sm;
+  font-weight: 600;
+  color: $color-ink-500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color $duration-fast $ease-standard;
+
+  &:hover {
+    color: $color-ink-900;
+  }
+
+  &.active {
+    color: $color-primary;
+    border-bottom-color: $color-primary;
+  }
+}
+
+// ============== Progress bar ==============
+.progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: $radius-pill;
+  background: $color-border;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: $radius-pill;
+  background: linear-gradient(90deg, $color-primary, $color-primary-light);
+  transition: width $duration-base $ease-standard;
+}
+
+// ============== Toast ==============
+.toast-stack {
+  position: fixed;
+  top: $space-5;
+  right: $space-5;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  max-width: 380px;
+
+  @media (max-width: $bp-tablet) {
+    left: $space-4;
+    right: $space-4;
+    max-width: none;
+  }
+}
+
+.toast {
+  background: $color-navy-900;
+  color: $color-ink-inverse;
+  padding: $space-4 $space-5;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  font-size: $fs-sm;
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  animation: slideUp $duration-base $ease-standard;
+
+  &.toast-success {
+    border-left: 3px solid $color-success;
+  }
+  &.toast-error {
+    border-left: 3px solid $color-danger;
+  }
+  &.toast-info {
+    border-left: 3px solid $color-primary-light;
+  }
+}
+
+// ============== Misc ==============
+.divider {
+  height: 1px;
+  background: $color-border;
+  border: none;
+  margin: $space-5 0;
+}
+
+.stat-tile {
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-5;
+
+  .stat-value {
+    font-family: $font-display;
+    font-size: $fs-xl;
+    font-weight: 800;
+    color: $color-ink-900;
+  }
+
+  .stat-label {
+    font-size: $fs-xs;
+    color: $color-ink-500;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: $color-primary;
+  font-weight: 600;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.text-muted {
+  color: $color-ink-500;
+}
+
+.text-danger {
+  color: $color-danger;
+}
+
+.text-success {
+  color: $color-success;
+}
+
+// ============== Preference rows / toggle switch ==============
+.pref-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-4 0;
+  border-bottom: 1px solid $color-border;
+  font-size: $fs-sm;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  flex-shrink: 0;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .toggle-slider {
+      background: $color-primary;
+    }
+    &:checked + .toggle-slider::before {
+      transform: translateX(18px);
+    }
+    &:disabled + .toggle-slider {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .toggle-slider {
+    position: absolute;
+    inset: 0;
+    background: $color-border-strong;
+    border-radius: $radius-pill;
+    cursor: pointer;
+    transition: background $duration-fast $ease-standard;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 3px;
+      top: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: transform $duration-fast $ease-standard;
+    }
+  }
+}

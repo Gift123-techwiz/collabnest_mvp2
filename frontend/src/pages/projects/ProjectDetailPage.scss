@@ -1,0 +1,98 @@
+@use '../../styles/variables' as *;
+
+.detail-owner-row {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: $space-3;
+  font-size: $fs-sm;
+  color: $color-ink-500;
+  flex-wrap: wrap;
+}
+
+.detail-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.detail-body-text {
+  font-size: $fs-sm;
+  color: $color-ink-700;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.locked-banner {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  background: $color-danger-tint;
+  color: $color-danger;
+  padding: $space-4 $space-5;
+  border-radius: $radius-md;
+  font-size: $fs-sm;
+  font-weight: 600;
+  margin-bottom: $space-6;
+}
+
+.role-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.role-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $space-4;
+}
+
+.role-list-item-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.role-list-item-head {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+
+  strong {
+    font-size: $fs-md;
+  }
+}
+
+.role-list-item-action {
+  flex-shrink: 0;
+}
+
+.my-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.my-task-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: $space-3;
+  background: $color-surface-app;
+  border-radius: $radius-md;
+  font-size: $fs-sm;
+}
+
+.owner-card-link {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  strong {
+    display: block;
+    font-size: $fs-sm;
+  }
+}

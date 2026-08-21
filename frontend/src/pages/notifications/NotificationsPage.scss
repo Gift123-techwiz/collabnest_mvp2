@@ -1,0 +1,86 @@
+@use '../../styles/variables' as *;
+
+.notif-list-page {
+  display: flex;
+  flex-direction: column;
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+}
+
+.notif-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-4;
+  width: 100%;
+  text-align: left;
+  padding: $space-4 $space-5;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $color-border;
+  cursor: pointer;
+  transition: background $duration-fast;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $color-surface-app;
+  }
+
+  &.unread {
+    background: $color-primary-tint;
+
+    &:hover {
+      background: $color-primary-tint-2;
+    }
+  }
+
+  .notif-item-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: $color-surface-white;
+    border: 1px solid $color-border;
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .notif-item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .notif-item-title {
+    font-size: $fs-sm;
+    font-weight: 700;
+  }
+
+  .notif-item-message {
+    font-size: $fs-sm;
+    color: $color-ink-500;
+    line-height: 1.55;
+  }
+
+  .notif-item-time {
+    font-size: 11px;
+    color: $color-ink-400;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .notif-item-unread-mark {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $color-primary;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+}

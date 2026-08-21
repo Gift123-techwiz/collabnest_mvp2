@@ -1,0 +1,393 @@
+@use '../../styles/variables' as *;
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+// ---- Sidebar ----
+.app-sidebar {
+  width: 248px;
+  flex-shrink: 0;
+  background: $color-navy-900;
+  color: $color-ink-inverse;
+  display: flex;
+  flex-direction: column;
+  padding: $space-5 $space-4;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  @media (max-width: $bp-desktop) {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    bottom: 0;
+    z-index: 1100;
+    transition: left $duration-base $ease-standard;
+    box-shadow: $shadow-lg;
+
+    &.open {
+      left: 0;
+    }
+  }
+}
+
+.app-sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-6;
+  padding: $space-2 $space-2 $space-2 $space-1;
+}
+
+.mobile-close-btn,
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: $space-1;
+}
+
+@media (max-width: $bp-desktop) {
+  .mobile-close-btn {
+    display: inline-flex;
+    color: $color-ink-inverse;
+  }
+  .mobile-menu-btn {
+    display: inline-flex;
+    color: $color-ink-700;
+  }
+}
+
+.mobile-overlay {
+  display: none;
+
+  @media (max-width: $bp-desktop) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 13, 22, 0.55);
+    z-index: 1050;
+  }
+}
+
+.create-project-btn {
+  margin-bottom: $space-6;
+}
+
+.app-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.app-nav-link {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: 11px 14px;
+  border-radius: $radius-md;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: $color-ink-inverse-muted;
+  transition: all $duration-fast $ease-standard;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: $color-ink-inverse;
+  }
+
+  &.active {
+    background: $color-primary;
+    color: $color-ink-inverse;
+  }
+}
+
+.app-nav-logout:hover {
+  background: rgba(220, 59, 46, 0.16);
+  color: #ff8e83;
+}
+
+.app-sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: $space-4;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// ---- Main area ----
+.app-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-topbar {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-4 $space-6;
+  background: $color-surface-white;
+  border-bottom: 1px solid $color-border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  @media (max-width: $bp-tablet) {
+    padding: $space-3 $space-4;
+  }
+}
+
+.app-topbar-spacer {
+  flex: 1;
+}
+
+.app-content {
+  flex: 1;
+  padding: $space-8 $space-6;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: $bp-tablet) {
+    padding: $space-5 $space-4;
+  }
+}
+
+// ---- Notifications bell ----
+.notif-bell {
+  position: relative;
+}
+
+.notif-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: $color-danger;
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  min-width: 16px;
+  height: 16px;
+  border-radius: $radius-pill;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  border: 2px solid $color-surface-white;
+}
+
+.notif-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  z-index: 200;
+  overflow: hidden;
+}
+
+.notif-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-4 $space-5;
+  border-bottom: 1px solid $color-border;
+
+  h4 {
+    font-size: $fs-sm;
+  }
+}
+
+.notif-panel-body {
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.notif-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  width: 100%;
+  text-align: left;
+  padding: $space-3 $space-5;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $color-border;
+  cursor: pointer;
+  transition: background $duration-fast;
+  position: relative;
+
+  &:hover {
+    background: $color-surface-app;
+  }
+
+  &.unread {
+    background: $color-primary-tint;
+
+    &:hover {
+      background: $color-primary-tint-2;
+    }
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.notif-item-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notif-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.notif-item-title {
+  font-size: $fs-sm;
+  font-weight: 700;
+  color: $color-ink-900;
+}
+
+.notif-item-message {
+  font-size: $fs-xs;
+  color: $color-ink-500;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.notif-item-time {
+  font-size: 11px;
+  color: $color-ink-400;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.notif-item-unread-mark {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-primary;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.notif-panel-footer {
+  display: block;
+  text-align: center;
+  padding: $space-3;
+  font-size: $fs-xs;
+  font-weight: 700;
+  color: $color-primary;
+  background: $color-surface-app;
+
+  &:hover {
+    background: $color-primary-tint;
+  }
+}
+
+// ---- User menu ----
+.user-menu-wrap {
+  position: relative;
+}
+
+.user-menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px 4px 4px;
+  border-radius: $radius-pill;
+  color: $color-ink-700;
+
+  &:hover {
+    background: $color-surface-app;
+  }
+}
+
+.user-menu-name {
+  font-size: $fs-sm;
+  font-weight: 600;
+
+  @media (max-width: $bp-tablet) {
+    display: none;
+  }
+}
+
+.user-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 190;
+}
+
+.user-menu-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  min-width: 180px;
+  z-index: 200;
+  padding: $space-2;
+  display: flex;
+  flex-direction: column;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    width: 100%;
+    text-align: left;
+    padding: 9px 10px;
+    background: transparent;
+    border: none;
+    border-radius: $radius-sm;
+    font-size: $fs-sm;
+    font-weight: 500;
+    color: $color-ink-700;
+    cursor: pointer;
+
+    &:hover {
+      background: $color-surface-app;
+    }
+
+    &.danger {
+      color: $color-danger;
+    }
+  }
+}

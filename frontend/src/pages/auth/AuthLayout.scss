@@ -1,0 +1,122 @@
+@use '../../styles/variables' as *;
+
+.auth-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: $bp-desktop) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.auth-panel-brand {
+  background: $color-navy-900;
+  background-image: radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(124, 58, 237, 0.25), transparent 45%);
+  color: $color-ink-inverse;
+  padding: $space-10 $space-12;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: $bp-desktop) {
+    display: none;
+  }
+}
+
+.auth-panel-brand-content {
+  max-width: 440px;
+
+  h1 {
+    font-size: $fs-3xl;
+    color: $color-ink-inverse;
+    margin-bottom: $space-5;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: $fs-md;
+    color: $color-ink-inverse-muted;
+    line-height: 1.6;
+  }
+}
+
+.auth-panel-points {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    font-size: $fs-sm;
+    font-weight: 600;
+    color: $color-ink-inverse-muted;
+
+    &::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $color-primary-light;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.auth-panel-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-8 $space-5;
+  background: $color-surface-white;
+}
+
+.auth-form-wrap {
+  width: 100%;
+  max-width: 400px;
+
+  h2 {
+    font-size: $fs-2xl;
+    margin-bottom: $space-2;
+  }
+}
+
+.auth-mobile-logo {
+  display: none;
+  margin-bottom: $space-6;
+
+  @media (max-width: $bp-desktop) {
+    display: block;
+  }
+}
+
+.auth-subheading {
+  color: $color-ink-500;
+  font-size: $fs-sm;
+  margin-bottom: $space-8;
+}
+
+.auth-form-footer {
+  margin-top: $space-6;
+  text-align: center;
+  font-size: $fs-sm;
+  color: $color-ink-500;
+}
+
+.auth-divider-row {
+  display: flex;
+  gap: $space-3;
+}
+
+.auth-error-banner {
+  background: $color-danger-tint;
+  color: $color-danger;
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  font-size: $fs-sm;
+  font-weight: 600;
+  margin-bottom: $space-5;
+}

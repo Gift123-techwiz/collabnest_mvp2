@@ -1,0 +1,238 @@
+@use 'variables' as *;
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-4;
+  margin-bottom: $space-8;
+  flex-wrap: wrap;
+
+  h1 {
+    font-size: $fs-2xl;
+    margin-bottom: $space-1;
+  }
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-4;
+  margin-bottom: $space-10;
+
+  @media (max-width: $bp-desktop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dashboard-section {
+  margin-bottom: $space-10;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-5;
+
+  h2 {
+    font-size: $fs-lg;
+  }
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-5;
+
+  @media (max-width: $bp-desktop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profile-nudge-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-6;
+  background: linear-gradient(120deg, $color-navy-900, $color-navy-800);
+  color: $color-ink-inverse;
+  border-radius: $radius-lg;
+  padding: $space-6;
+  margin-bottom: $space-8;
+  transition: transform $duration-fast $ease-standard;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  h4 {
+    color: $color-ink-inverse;
+    font-size: $fs-md;
+    margin-bottom: 6px;
+  }
+
+  p {
+    color: $color-ink-inverse-muted;
+    font-size: $fs-sm;
+    max-width: 460px;
+    line-height: 1.55;
+  }
+
+  .profile-nudge-progress {
+    width: 200px;
+    flex-shrink: 0;
+
+    .progress-track {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .link-btn {
+      display: inline-block;
+      margin-top: $space-3;
+      color: $color-ink-inverse;
+      font-size: $fs-xs;
+    }
+  }
+
+  @media (max-width: $bp-tablet) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .profile-nudge-progress {
+      width: 100%;
+    }
+  }
+}
+
+.filter-bar {
+  display: flex;
+  gap: $space-3;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: $space-6;
+}
+
+.search-input-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+
+  svg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $color-ink-400;
+  }
+
+  .input {
+    padding-left: 40px;
+  }
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $space-6;
+  margin-bottom: $space-8;
+  flex-wrap: wrap;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: $space-8;
+  align-items: start;
+
+  @media (max-width: $bp-desktop) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sticky-side {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+.danger-zone {
+  border-color: rgba(220, 59, 46, 0.3);
+}
+
+.billing-callback-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-6;
+}
+
+.billing-callback-card {
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $space-10;
+
+  .empty-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.application-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.application-applicant {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  strong {
+    display: block;
+    font-size: $fs-sm;
+  }
+}
+
+.application-message {
+  background: $color-surface-app;
+  padding: $space-3;
+  border-radius: $radius-md;
+  font-style: italic;
+}
+
+.application-row-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.application-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-4;
+  flex-wrap: wrap;
+  transition: border-color $duration-fast $ease-standard;
+
+  &:hover {
+    border-color: $color-primary-light;
+  }
+}

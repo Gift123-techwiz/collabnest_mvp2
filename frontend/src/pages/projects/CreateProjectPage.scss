@@ -1,0 +1,156 @@
+@use '../../styles/variables' as *;
+
+.create-project-page {
+  max-width: 760px;
+}
+
+.wizard-steps {
+  display: flex;
+  gap: $space-6;
+  margin-bottom: $space-8;
+  flex-wrap: wrap;
+}
+
+.wizard-step {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $fs-sm;
+  font-weight: 700;
+  color: $color-ink-400;
+
+  .wizard-step-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: $color-surface-app;
+    border: 1px solid $color-border-strong;
+    color: $color-ink-400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  &.active {
+    color: $color-ink-900;
+
+    .wizard-step-num {
+      background: $color-primary;
+      border-color: $color-primary;
+      color: white;
+    }
+  }
+
+  &.done {
+    color: $color-ink-700;
+
+    .wizard-step-num {
+      background: $color-success;
+      border-color: $color-success;
+      color: white;
+    }
+  }
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip-toggle {
+  cursor: pointer;
+  border: 1px solid $color-border;
+  transition: all $duration-fast $ease-standard;
+
+  &.selected {
+    background: $color-primary;
+    border-color: $color-primary;
+    color: white;
+  }
+}
+
+.wizard-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: $space-6;
+}
+
+.role-card {
+  margin-bottom: $space-5;
+}
+
+.role-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $space-4;
+
+  h4 {
+    font-size: $fs-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $color-ink-500;
+  }
+}
+
+.task-list-editor {
+  margin-top: $space-4;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.task-row {
+  display: flex;
+  gap: $space-2;
+  align-items: center;
+
+  .input {
+    flex: 1;
+  }
+}
+
+.review-meta {
+  display: flex;
+  gap: $space-2;
+  margin-bottom: $space-2;
+}
+
+.review-role {
+  margin-bottom: $space-4;
+  padding: $space-4;
+  background: $color-surface-app;
+  border-radius: $radius-md;
+}
+
+.review-role-header {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-2;
+}
+
+.review-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: $space-5;
+
+  li {
+    list-style: disc;
+    font-size: $fs-sm;
+    color: $color-ink-700;
+  }
+}

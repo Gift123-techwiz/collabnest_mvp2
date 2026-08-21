@@ -1,0 +1,65 @@
+@use '../../styles/variables' as *;
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-5;
+  transition: all $duration-fast $ease-standard;
+
+  &:hover {
+    border-color: $color-primary-light;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+.project-card-top {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.project-card-title {
+  font-size: $fs-md;
+  font-weight: 700;
+  color: $color-ink-900;
+  line-height: 1.3;
+}
+
+.project-card-desc {
+  font-size: $fs-sm;
+  color: $color-ink-500;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+  margin-top: auto;
+  padding-top: $space-3;
+  border-top: 1px solid $color-border;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: $fs-xs;
+    color: $color-ink-500;
+    font-weight: 600;
+  }
+}

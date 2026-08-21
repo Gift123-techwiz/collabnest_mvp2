@@ -1,0 +1,109 @@
+@use 'variables' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: $font-body;
+  background: $color-surface-app;
+  color: $color-ink-900;
+  font-size: $fs-base;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-display;
+  font-weight: $fw-bold;
+  line-height: 1.2;
+  margin: 0;
+  color: $color-ink-900;
+}
+
+h4,
+h5 {
+  font-family: $font-display;
+  font-weight: $fw-semibold;
+  line-height: 1.3;
+  margin: 0;
+  color: $color-ink-900;
+}
+
+button,
+input,
+select,
+textarea,
+label,
+nav {
+  font-weight: $fw-medium;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: $bp-wide;
+  margin: 0 auto;
+  padding: 0 $space-6;
+
+  @media (max-width: $bp-tablet) {
+    padding: 0 $space-4;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
